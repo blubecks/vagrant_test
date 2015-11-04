@@ -42,16 +42,29 @@ In this file you can choose:
 ##With shell
 The shell provisioner allows you to execute a shell script inside the vagrant box, as root.
 You can find an example in my repo
+
     - https://github.com/andreafspeziale/vagrant_test
+
 Be sure to use in the vagrant file the shell as provisioner
+
     - config.vm.provision :shell, :path => "test.sh"
+
 then try to run
+
     - vagrant up
+
 As you will see, the script will successfully executed in the end.
+
 If your vagrant is already up, you can run a
+
     - vagrant reload
+
 to "restart" it or a
+
     - vagrant provision
+
 if you only want to re-run the provisioners tasks.
+
 For turning the machine off, run
+
     - vagrant halt
