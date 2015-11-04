@@ -14,7 +14,8 @@ and download the installation file according to your OS and then follow the simp
   - Provisioner: don't be confused by Provider, Provisioner it's the one who runs tasks using the VM served by the Provider.
   Provisioner is used to configuring the virtual server and installing the packages for your application. The most famous are Puppet, Chef e Ansible.
 
-#Vagrantfile (http://docs.vagrantup.com/v2/vagrantfile/index.html):
+#Vagrantfile
+    - Reference http://docs.vagrantup.com/v2/vagrantfile/index.html
 The basic configuration is contained in this file and is generated in the root of your project executing the command:
 
     - vagrant init
