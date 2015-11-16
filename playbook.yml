@@ -10,3 +10,4 @@
       - include: tasks/git.yml
       - include: tasks/mysql.yml
       - include: tasks/apache.yml
+      - include: tasks/php.yml

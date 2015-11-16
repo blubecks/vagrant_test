@@ -9,8 +9,10 @@
   file:
     path=/etc/apache2/sites-enabled/000-default.conf
     state=absent
-name: Enable new vagrant virtual host
+- name: Enable new vagrant virtual host
   file:
     src=/etc/apache2/sites-available/vagrant.conf
     dest=/etc/apache2/sites-enabled/vagrant.conf
     state=link
+- name: reload apache
+  service: name=apache2 state=reloaded
