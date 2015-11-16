@@ -2,6 +2,8 @@
   - name: Easy Dev Configuration for MEAN Stack application Ansible
     hosts: all
     sudo: True
+    vars:
+        document_root: /vagrant
     tasks:
       - name: update apt cache
         apt: update_cache=yes
