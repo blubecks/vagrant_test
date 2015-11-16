@@ -1,0 +1,10 @@
+---
+  - name: Easy Dev Configuration for MEAN Stack application Ansible
+    hosts: all
+    sudo: True
+    tasks:
+      - name: update apt cache
+        apt: update_cache=yes
+      - include: tasks/git.yml
+      - include: tasks/mysql.yml
+      - include: tasks/apache.yml
