@@ -1,5 +1,5 @@
 ---
-  - name: Easy Dev Configuration for MEAN Stack application Ansible
+  - name: Easy Dev Configuration with Ansible
     hosts: all
     sudo: True
     vars:

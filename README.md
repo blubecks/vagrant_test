@@ -127,3 +127,14 @@ The final thing we need to do to copy our template across is to tell Ansible wha
 Again, there are a few ways to do this, but the simplest is to add a vars: key to your playbook.yml.
 
 The vars: key can live in any position, but convention dictates it comes somewhere before tasks: in your Playbook.  
+
+Test it simply:
+
+    - vagrant provision
+
+    - cd /etc/apache2/sites-available and you will find out vagrant configuration
+
+##The File Module
+Ubuntu's configuration convention for Apache Virtual Hosts is to put the contents of all possible Virtual Hosts in /etc/apache2/sites-available and then use the a2ensite and a2dissite to create and remove symlinks for each active Virutal Host in the /etc/apache2/sites-enabled directory.
+
+We need to add two tasks to our tasks/apache.yml file, one to remove the existing symlink, and one to create our new one
