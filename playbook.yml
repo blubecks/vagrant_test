@@ -4,6 +4,7 @@
     sudo: True
     vars:
         document_root: /vagrant
+        server_admin: andrea.speziale@top-ix.com
     tasks:
       - name: update apt cache
         apt: update_cache=yes
