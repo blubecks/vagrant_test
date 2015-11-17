@@ -161,3 +161,8 @@ We'll try to create two specific roles:
 
     - A Webserver Role (apache + PHP)
     - A Database Role (MySQL)
+
+##Main Task File
+You'll notice that with our list of Roles we're just specifying the name of the Role, which is just the name of the directory that contains the Role.
+Ansible doesn't know which Tasks to run inside that Role though, as a Role can contain multiple Task files.
+The secret here is that Ansible will always look for a Task file called main.yml inside the tasks directory of a Role.

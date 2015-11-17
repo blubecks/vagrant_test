@@ -12,8 +12,7 @@
     tasks:
       - name: update apt cache
         apt: update_cache=yes
-      - include: tasks/vim.yml
-      - include: tasks/php.yml
-      - include: tasks/git.yml
-      - include: tasks/mysql.yml
-      - include: tasks/apache.yml
+    roles:
+      - webserver
+      - database
+      - common
