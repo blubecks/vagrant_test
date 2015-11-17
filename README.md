@@ -138,3 +138,8 @@ Test it simply:
 Ubuntu's configuration convention for Apache Virtual Hosts is to put the contents of all possible Virtual Hosts in /etc/apache2/sites-available and then use the a2ensite and a2dissite to create and remove symlinks for each active Virutal Host in the /etc/apache2/sites-enabled directory.
 
 We need to add two tasks to our tasks/apache.yml file, one to remove the existing symlink, and one to create our new one
+
+##Handlers
+Telling a service to restart or reload itself manually after every configuration change can be a real pain. Fortunately, Ansible has a way of automating that process for you, and that's by using Handlers.
+
+Handlers are a list of Tasks with a name assigned that you can call by name after another Task has run. They won't run unless another Task triggers them.

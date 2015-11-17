@@ -14,5 +14,13 @@
     src=/etc/apache2/sites-available/vagrant.conf
     dest=/etc/apache2/sites-enabled/vagrant.conf
     state=link
+- name: remove default hosts file
+  file:
+    path=/etc/hosts
+    state=absent
+- name: copy across new hosts file
+  template:
+      src=hosts.conf.j2
+      dest=/etc/hosts
 - name: reload apache
   service: name=apache2 state=reloaded

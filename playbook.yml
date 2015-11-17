@@ -3,7 +3,7 @@
     hosts: all
     sudo: True
     vars:
-        server_name: www.myproject.com
+        server_name: myproject.top-ix.org
         server_admin: andrea.speziale@top-ix.com
         document_root: /vagrant
     tasks:
