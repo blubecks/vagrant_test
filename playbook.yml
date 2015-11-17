@@ -3,11 +3,13 @@
     hosts: all
     sudo: True
     vars:
-        document_root: /vagrant
+        server_name: www.myproject.com
         server_admin: andrea.speziale@top-ix.com
+        document_root: /vagrant
     tasks:
       - name: update apt cache
         apt: update_cache=yes
+      - include: tasks/vim.yml
       - include: tasks/php.yml
       - include: tasks/git.yml
       - include: tasks/mysql.yml
