@@ -146,3 +146,18 @@ Handlers are a list of Tasks with a name assigned that you can call by name afte
 
 Now we tell Ansible to run this new Handler whenever we change the apache config.
 To do this we add a list of Handlers to notify when a Task is complete
+
+#Roles
+What happens if we want to write a generic Playbook or set of Tasks and then re-use them?
+
+What happens when we want configure more than just a couple of modules?
+
+Our playbook.yml is going to become full of unrelated Handlers and variables and will get difficult to maintain.
+
+Ansible can solve this problem with Roles. A Role is a group of Tasks, Handlers, Variables, Templates, Files, and so on all related to a single purpose.
+You could create specific "apache", "MySQL", and "PHP" Roles, or a generic high-level "webserver" Role. It doesn't matter.
+
+We'll try to create two specific roles:
+
+    - A Webserver Role (apache + PHP)
+    - A Database Role (MySQL)
