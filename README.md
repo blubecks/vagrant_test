@@ -143,3 +143,6 @@ We need to add two tasks to our tasks/apache.yml file, one to remove the existin
 Telling a service to restart or reload itself manually after every configuration change can be a real pain. Fortunately, Ansible has a way of automating that process for you, and that's by using Handlers.
 
 Handlers are a list of Tasks with a name assigned that you can call by name after another Task has run. They won't run unless another Task triggers them.
+
+Now we tell Ansible to run this new Handler whenever we change the apache config.
+To do this we add a list of Handlers to notify when a Task is complete
