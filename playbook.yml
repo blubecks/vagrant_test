@@ -6,9 +6,6 @@
         server_name: myproject.top-ix.org
         server_admin: andrea.speziale@top-ix.com
         document_root: /vagrant
-    handlers:
-      - name: reload apache
-        service: name=apache2 state=reloaded
     pre_tasks:
       - name: update apt cache
         apt: update_cache=yes
