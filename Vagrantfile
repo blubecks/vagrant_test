@@ -1,3 +1,10 @@
+# Run
+system("
+    if [ #{ARGV[0]} = 'up' ]; then
+        echo 'You have just run 'vagrant up''
+    fi
+")
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 

@@ -170,4 +170,8 @@ The secret here is that Ansible will always look for a Task file called main.yml
 ##Pre & Post Tasks
 Before we try this out, there's one more thing we need to do.
 Ansible runs your Roles before your Tasks, so our packages will be installed before we've updated the apt cache.
-To fix this, we need to rename our 'tasks': key in playbook.yml to 'pre_tasks' 
+To fix this, we need to rename our 'tasks': key in playbook.yml to 'pre_tasks'.
+
+#Interesting Tips
+#Runnare un proprio script al lancio di vagrant  
+#port forwarding
