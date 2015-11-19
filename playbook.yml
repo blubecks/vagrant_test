@@ -2,12 +2,8 @@
   - name: Easy Dev Configuration with Ansible
     hosts: all
     sudo: True
-    vars:
-        server_name: myproject.top-ix.org
-        server_admin: andrea.speziale@top-ix.com
-        document_root: /vagrant
     pre_tasks:
-      - name: update apt cache
+      - name: Pre-task | Update apt cache
         apt: update_cache=yes
     roles:
       - webserver

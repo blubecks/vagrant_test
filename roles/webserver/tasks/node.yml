@@ -6,9 +6,3 @@
   - name: install nodejs and npm
     apt: pkg=nodejs update_cache=yes
     tags: nodejs
-
-  - name: install packages
-    command: npm install -g $item
-    with_items:
-      - grunt-cli
-      - bower
