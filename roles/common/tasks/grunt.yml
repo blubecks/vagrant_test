@@ -1,4 +1,4 @@
-- name: install packages
+- name: install grunt-cli
   command: npm install -g {{ item }}
   with_items:
     - grunt-cli

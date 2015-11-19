@@ -1,4 +1,4 @@
-- name: install packages
+- name: install bower
   command: npm install -g {{ item }}
   with_items:
     - bower
