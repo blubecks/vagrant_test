@@ -20,11 +20,11 @@
     state=link
   notify:
       - reload apache
-- name: remove default hosts file
-  file:
-    path=/etc/hosts
-    state=absent
-- name: copy across new hosts file
-  template:
-      src=hosts.conf.j2
-      dest=/etc/hosts
+#- name: remove default hosts file
+#  file:
+#    path=/etc/hosts
+#    state=absent
+#- name: copy across new hosts file
+#  template:
+#      src=hosts.conf.j2
+#      dest=/etc/hosts

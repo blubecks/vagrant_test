@@ -1,12 +1,20 @@
-# Run
+# Run on vagrant up command
 system("
     if [ #{ARGV[0]} = 'up' ]; then
         echo 'You have just run 'vagrant up''
     fi
 ")
 
+# encoding: utf-8
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+
+# Pass variables to vagrant files
+require 'yaml'
+
+current_dir = File.dirname(File.expand_path(__FILE__))
+configs = YAML.load_file("#{current_dir}/vagrantfile_config.yaml")
+vagrant_config = configs['configs'][configs['configs']['use']]
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -27,6 +35,12 @@ Vagrant.configure(2) do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
+  # Hostmanager configuration
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = false
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -35,7 +49,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "192.168.33.10"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -80,5 +94,9 @@ Vagrant.configure(2) do |config|
   # SHELL
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
+  end
+  config.vm.define 'vagrant_test' do |hostmanager|
+    hostmanager.vm.hostname = vagrant_config['host_name']
+    hostmanager.vm.network :private_network, ip: vagrant_config['private_ip']
   end
 end
