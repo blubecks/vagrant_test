@@ -1,7 +1,7 @@
 # Run on vagrant up command
 system("
     if [ #{ARGV[0]} = 'up' ]; then
-        echo 'You have just run 'vagrant up''
+        echo 'You have just run vagrant up'
     fi
 ")
 
@@ -13,7 +13,7 @@ system("
 require 'yaml'
 
 current_dir = File.dirname(File.expand_path(__FILE__))
-configs = YAML.load_file("#{current_dir}/vagrantfile_config.yaml")
+configs = YAML.load_file("#{current_dir}/vagrantfile_config.yml")
 vagrant_config = configs['configs'][configs['configs']['use']]
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -95,7 +95,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
   end
-  config.vm.define 'vagrant_test' do |hostmanager|
+  config.vm.define 'hostmanager' do |hostmanager|
     hostmanager.vm.hostname = vagrant_config['host_name']
     hostmanager.vm.network :private_network, ip: vagrant_config['private_ip']
   end
