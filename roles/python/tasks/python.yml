@@ -1,0 +1,11 @@
+---
+- name: install essentials
+  apt: name=build-essential state=present
+- name: install python setuptools
+  apt: name=python-setuptools state=present
+- name: install python-dev
+  apt: name=python-dev state=present
+- name: install pip
+  apt: name=python-pip state=present
+- name: install virtualenv
+  pip: name=virtualenv state=present

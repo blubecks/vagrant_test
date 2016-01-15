@@ -1,0 +1,6 @@
+
+- name: install npm packages
+  command: npm install -g {{ item }}
+  with_items:
+    - bower
+    - grunt-cli
