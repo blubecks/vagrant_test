@@ -1,5 +1,5 @@
 ---
-  - name: Easy Dev Configuration with Ansible
+  - name: Gearbox Dev Configuration with Ansible
     hosts: all
     sudo: True
     vars:
@@ -10,6 +10,7 @@
       - name: update apt cache
         apt: update_cache=yes
     roles:
-      - common
+      - python
       - webserver
       - database
+      - common
