@@ -11,3 +11,5 @@
   pip: name=virtualenv state=present
 - name: install virtualenv
   pip: name=fabric state=present
+- name: install Gearbox Tools
+  pip: name=tg.devtools state=present
