@@ -1,0 +1,4 @@
+---
+- name: Preparing Gearbox virtual environment
+  sudo: yes
+  script: ../../../virtualenv.sh

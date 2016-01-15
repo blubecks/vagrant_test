@@ -9,3 +9,5 @@
   apt: name=python-pip state=present
 - name: install virtualenv
   pip: name=virtualenv state=present
+- name: install virtualenv
+  pip: name=fabric state=present
