@@ -2,6 +2,9 @@
   - name: Laravel Dev Configuration with Ansible
     hosts: all
     sudo: True
+    vars:
+        document_root: /vagrant/myAppName
+        db: mysql
     pre_tasks:
       - name: update apt cache
         apt: update_cache=yes
