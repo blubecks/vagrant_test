@@ -3,7 +3,7 @@
     hosts: all
     sudo: True
     vars:
-        document_root: /vagrant/myAppName
+        document_root: /vagrant/myAppName/public
         db: mysql
     pre_tasks:
       - name: update apt cache
