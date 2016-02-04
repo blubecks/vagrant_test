@@ -1,0 +1,12 @@
+DirectoryIndex index.php index.html
+
+<VirtualHost *:80>
+  ServerName localhost
+  DocumentRoot {{ document_root }}
+
+  <Directory "{{ document_root }}">
+    AllowOverride All
+    Options -Indexes +FollowSymLinks
+    Require all granted
+  </Directory>
+</VirtualHost>
