@@ -1,3 +1,7 @@
 ---
 - name: install my-sql
-  apt: name=mysql-server state=present
+  apt: pkg={{ item }} state=present
+  with_items:
+    - mysql-server
+    - mysql-client
+    - php5-mysql
