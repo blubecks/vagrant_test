@@ -4,6 +4,7 @@
     sudo: True
     vars:
         document_root: /vagrant/myAppName/public
+        symbolic_link_phpMyAdmin: /vagrant/myAppName/
         db: mysql
     pre_tasks:
       - name: update apt cache

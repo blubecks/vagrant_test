@@ -7,12 +7,6 @@
     dest=/etc/apache2/sites-available/laravelHost.conf
   notify:
     - reload apache
-- name: remove default virtual host
-  file:
-    path=/etc/apache2/sites-enabled/000-default
-    state=absent
-  notify:
-    - reload apache
 - name: enable new vagrant virtual host
   file:
     src=/etc/apache2/sites-available/laravelHost.conf
@@ -20,3 +14,16 @@
     state=link
   notify:
     - reload apache
+- name: change apache user and group
+  replace: >
+    dest=/etc/apache2/envvars
+    regexp="^(export APACHE_RUN_(USER|GROUP)=)www-data"
+    replace="\1vagrant"
+    backup=yes
+  notify:
+    - reload apache
+- name: change owner of apache.lock
+  file: >
+    path="/var/lock/apache2"
+    owner=vagrant
+    group=www-data

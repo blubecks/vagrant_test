@@ -18,5 +18,12 @@
   with_items:
     - phpmyadmin
     - libmysqlclient-dev
-- name: symbolic link for phpMyAdmin
-  shell: ln -s /usr/share/phpmyadmin /var/www/html/
+- name: Ensure PHPMyAdmin config file is included in Apache config.
+  lineinfile: >
+    dest=/etc/apache2/apache2.conf
+    state=present
+    regexp="^Include.+phpmyadmin.+$"
+    line="Include /etc/phpmyadmin/apache.conf"
+    insertafter="EOF"
+  notify:
+    - reload apache
