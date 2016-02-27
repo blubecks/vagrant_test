@@ -186,4 +186,5 @@ For example: If the guest machine is running a web server listening on port 80, 
 ##Host-manager
 
     - https://github.com/smdahlen/vagrant-hostmanager
+
 vagrant-hostmanager is a Vagrant 1.1+ plugin that manages the /etc/hosts file on guest machines (and optionally the host). Its goal is to enable resolution of multi-machine environments deployed with a cloud provider where IP addresses are not known in advance.
