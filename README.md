@@ -174,7 +174,16 @@ To fix this, we need to rename our 'tasks': key in playbook.yml to 'pre_tasks'.
 
 #More Interesting Stuff
 
-##Interesting Tips about forwarding
-##Run custom bash script on vagrant up command  
+##Run custom bash script on vagrant up command
+Yes it's possible adding additional code.
+An example is provided in the vagrant file!
+
 ##Port forwarding
+Vagrant forwarded ports allow you to access a port on your host machine and have all data forwarded to a port on the guest machine, over either TCP or UDP.
+
+For example: If the guest machine is running a web server listening on port 80, you can make a forwarded port mapping to port 8080 (or anything) on your host machine. You can then open your browser to localhost:8080 and browse the website, while all actual network data is being sent to the guest.
+
 ##Host-manager
+
+    - https://github.com/smdahlen/vagrant-hostmanager
+vagrant-hostmanager is a Vagrant 1.1+ plugin that manages the /etc/hosts file on guest machines (and optionally the host). Its goal is to enable resolution of multi-machine environments deployed with a cloud provider where IP addresses are not known in advance.
