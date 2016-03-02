@@ -17,7 +17,6 @@
 - name: install phpMyAdmin
   apt: pkg={{ item }} state=present
   with_items:
-    - php5-mysql
     - phpmyadmin
     - libmysqlclient-dev
 - name: Ensure PHPMyAdmin config file is included in Apache config.

@@ -27,6 +27,6 @@
     name: project
 - name: mysql user setup
   mysql_user:
-    name: local,
-    password: local,
+    name: local
+    password: local
     priv: project.*:ALL
