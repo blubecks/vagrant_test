@@ -9,6 +9,7 @@
     - php5-json
     - php-pear
     - php5-gd
+    - mcrypt
     - php5-mcrypt
     - php5-mysql
     - php5-xmlrpc

@@ -4,7 +4,6 @@
     sudo: True
     vars:
         document_root: /vagrant/learning-laravel-5/public
-        symbolic_link_phpMyAdmin: /vagrant/learning-laravel-5/
         db: mysql
     pre_tasks:
       - name: update apt cache
