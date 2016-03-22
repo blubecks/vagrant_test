@@ -8,4 +8,4 @@ Each branch represents a specific development environment.
 
 #GX development branch
 
-GX stands for turbogears, a python backend framework that we often use to go faster in prototypes development.
+GX stands for Turbogears, a Python back-end framework that we often use to go faster in prototypes development.
