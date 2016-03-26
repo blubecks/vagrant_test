@@ -1,5 +1,42 @@
 ---
 - name: install php
-  apt: name=php5 state=present
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - php5-fpm
+    - php5-cli
+    - php5-common
+    - php5-curl
+    - php5-json
+    - php-pear
+    - php5-gd
+    - mcrypt
+    - php5-mcrypt
+    - php5-mysql
+    - php5-xmlrpc
+    - libapache2-mod-php5
 - name: install phpMyAdmin
-  apt: name=phpmyadmin state=present
+  apt: pkg={{ item }} state=present
+  with_items:
+    - phpmyadmin
+    - libmysqlclient-dev
+- name: Ensure PHPMyAdmin config file is included in Apache config.
+  lineinfile: >
+    dest=/etc/apache2/apache2.conf
+    state=present
+    regexp="^Include.+phpmyadmin.+$"
+    line="Include /etc/phpmyadmin/apache.conf"
+    insertafter="EOF"
+  notify:
+    - reload apache
+- name: Add default username and password for MySQL connection.
+  lineinfile: >
+    dest=/etc/phpmyadmin/config.inc.php
+    state=present
+    regexp="^.+\['{{ item.key }}'\].+$"
+    line="$cfg['Servers'][$i]['{{ item.key }}'] = '{{ item.value }}';"
+    insertbefore="^\?>"
+  with_items:
+    - { key: user, value: "root" }
+    - { key: password, value: "root"}
+  notify:
+    - reload apache
