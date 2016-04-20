@@ -3,12 +3,20 @@
     hosts: all
     sudo: True
     vars:
-        document_root: /vagrant/learning-laravel-5/public
-        db: mysql
+        doc_root: var/www/html
+        db: mariadb
+        mariadb:
+            install: '1'
+            root_password: ''
+            database: PrendoPosta
+            user: root
+            password: P4ssw0rd1!
+            dump: ''
     pre_tasks:
       - name: update apt cache
         apt: update_cache=yes
     roles:
+      - httpd
       - database
       - webserver
       - common

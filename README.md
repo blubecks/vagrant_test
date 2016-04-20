@@ -6,9 +6,9 @@ In this repository you can find my experiments with Vagrant + Ansible.
 
 Each branch represents a specific development environment.
 
-#Laravel development branch
+#Silex development branch
 
-In this branch you can find a ready environment to host your PHP web-app built with Laravel framework.
+In this branch you can find a ready environment to host your PHP web-app built with Silex framework.
 
 #Installing
 
@@ -32,6 +32,10 @@ Set in the playbook your db preference
 or
 
     - mysql
+
+or
+
+    - mariadb
 
 ##Webserver
 
