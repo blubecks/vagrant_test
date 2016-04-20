@@ -10,6 +10,10 @@ Each branch represents a specific development environment.
 
 In this branch you can find a ready environment to host your PHP web-app built with Silex framework.
 
+#OS
+
+Centos 7.0
+
 #Installing
 
 Packages that will be installed
@@ -39,7 +43,7 @@ or
 
 ##Webserver
 
-    - apache2
-    - node
-    - php
-    - phpmyadmin
+    //- apache2
+    //- node
+    //- php
+    //- phpmyadmin

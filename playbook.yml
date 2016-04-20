@@ -1,5 +1,5 @@
 ---
-  - name: Laravel Dev Configuration with Ansible
+  - name: Silex Dev Configuration with Ansible
     hosts: all
     sudo: True
     vars:

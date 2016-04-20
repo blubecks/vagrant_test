@@ -1,6 +1,5 @@
 ---
 
 mariadb_version: 10.0
-
-mysql_conf_tpl: mariadb_centos.j2
+mysql_conf_tpl: mariadb_centos.repo.j2
 mysql_conf_file: settings.cnf

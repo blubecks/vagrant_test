@@ -5,13 +5,3 @@
   template: src={{ mysql_conf_tpl }} dest=/etc/my.cnf.d/{{ mysql_conf_file }} owner=root group=root mode=0644
   when: mysql_conf_tpl != 'change_me'
   notify: restart mysql
-
-- name: mariadb | Create databases
-  mysql_db: name={{ mariadb.database }} state=present login_user=root login_password={{ mariadb.root_password }}
-
-- name: mariadb | Create users
-  mysql_user: name={{ mariadb.user }} password={{ mariadb.password }} priv={{ mariadb.database }}.*:ALL state=present login_user=root login_password={{ mariadb.root_password }}
-
-
-- name: Start and enable service
- service: name=mysql state=started enabled=yes
