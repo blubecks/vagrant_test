@@ -1,7 +1,0 @@
----
-- include: centos.yml
-
-- name: Add configuration
-  template: src={{ mysql_conf_tpl }} dest=/etc/my.cnf.d/{{ mysql_conf_file }} owner=root group=root mode=0644
-  when: mysql_conf_tpl != 'change_me'
-  notify: restart mysql

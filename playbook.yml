@@ -1,22 +1,35 @@
+# file: ansible/playbook.yml
 ---
-  - name: Silex Dev Configuration with Ansible
-    hosts: all
-    sudo: True
-    vars:
-        doc_root: var/www/html
-        db: mariadb
-        mariadb:
-            install: '1'
-            root_password: ''
-            database: PrendoPosta
-            user: root
-            password: P4ssw0rd1!
-            dump: ''
-    pre_tasks:
-      - name: update apt cache
-        apt: update_cache=yes
-    roles:
-      - httpd
-      - database
-      - webserver
-      - common
+ - hosts: all
+   vars_files:
+    - vars/main.yml
+   roles:
+       - roles/repo
+       - roles/php
+       - roles/apache
+       - roles/mysql
+       #- roles/phpmyadmin
+
+   tasks:
+    - name: change apache user and group
+      sudo: True
+      replace: >
+            dest=/etc/httpd/conf/httpd.conf
+            regexp="^((User|Group) )apache"
+            replace="\1vagrant"
+            backup=yes
+
+    - name: change setenforce
+      sudo: True
+      shell: setenforce 0
+
+    - name: change permission to session directory
+      sudo: True
+      shell: chmod 700 /var/lib/php/session
+
+    - name: change owner to session directory
+      sudo: True
+      shell: chown vagrant /var/lib/php/session
+
+      notify:
+            - restart apache
